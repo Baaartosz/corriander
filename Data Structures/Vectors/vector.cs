@@ -44,9 +44,10 @@ class Vector{
         var tmp = at[size()];
         at(size()) = null;
         items--;
-        return tmp;
-        // TODO - Resize array down if the size is 1/4 of capacity
-    }
+        if(size() < (capacity()/4)){
+            resize(capacity()/2); // O(n)
+        }
+        return tmp;    }
 
     public void delete(int index){
         at(index) = null;
