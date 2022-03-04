@@ -3,7 +3,7 @@
 // -> Bartosz Perczynski 
 class Vector{
 
-    private int[] at; // [3,7,2,0]
+    private int[] at;
     private int size, capacity;
     private int items = 0;
 
@@ -58,14 +58,16 @@ class Vector{
         }
     }
     public void remove(int item){
-        int itemsRemoved = 0;
-        for(int i = 0; i < capacity(); i++){
+        int removed = 0;
+        for(int i = 0; i < capacity(); i++){ // O(n)
             if(at(i) == item){
                 at(i) = null; 
-                itemsRemoved++;  
+                removed++;  
             }
-            if( > 0){
-
+            if(removed > 0){
+                var tmp = at(i);
+                at(i) = null;
+                at(i - removed) = tmp;
             }
         }
     }
