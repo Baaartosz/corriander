@@ -3,13 +3,13 @@
 // -> Bartosz Perczynski 
 class Vector{
 
-    private int[] at;
+    private int[] array;
     private int size, capacity;
     private int items = 0;
 
     Vector(int arraySize){
         capacity = arraySize;
-        at = new int[capacity];
+        array = new int[capacity];
     }
 
     public int size() => items;
@@ -18,7 +18,7 @@ class Vector{
         return items == 0;
     }
     public int at(int index){
-        return at[index];
+        return array[index];
     }
 
     public void push(int item){
@@ -38,7 +38,7 @@ class Vector{
         items++;
     }
     public void prepend(int item){
-        insert(0,item); // insert handles items++
+        insert(0,item); // insert() handles items++
     }
     public int pop(){
         var tmp = at[size()];
@@ -51,7 +51,7 @@ class Vector{
     public void delete(int index){
         at(index) = null;
         items--;
-        for(int p = index + 1; p < capacity(); p++){ //O(n)
+        for(int p = index + 1; p < capacity(); p++){ // O(n)
             var tmp = at(p);
             at(p-1) = tmp;
             at(p) = null;
@@ -64,7 +64,7 @@ class Vector{
                 at(i) = null; 
                 removed++;  
             }
-            if(removed > 0){
+            else if(removed > 0){
                 var tmp = at(i);
                 at(i) = null;
                 at(i - removed) = tmp;
@@ -72,6 +72,18 @@ class Vector{
         }
     }
     
-    public int find(int item){}
-    private void resize(int newCapacity){}
+    public int find(int item){
+        for(int i = 0; i < capacity(); i++){ // O(n)
+            if(at(i) == item) return i;
+        }
+        return -1;
+    }
+    private void resize(int newCapacity){ // O(n)
+        var tmp = array;
+        array = new int[newCapacity];
+        for (int i = 0; i < tmp.Length; i++)
+        {
+            at(i) = tmp[i];
+        }
+    }
 }
