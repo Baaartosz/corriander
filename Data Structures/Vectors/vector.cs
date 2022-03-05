@@ -1,5 +1,5 @@
 // Vector Class
-// Initial Attmpt Arrays using Indexing ( No Pointers / Pointer Math)
+// Initial Attempt Arrays using Indexing ( No Pointers / Pointer Math)
 // -> Bartosz Perczynski 
 class Vector{
 
@@ -27,8 +27,8 @@ class Vector{
         items++;
     }
 
-    public void insert(int index, int item){ 
-        if(size() + 1 == capacity()) resize(capacity() * 2); // Amortized Time O(n²)
+    public void insert(int index, int item){ // Amortized O(n²), Normal O(n)
+        if(size() + 1 == capacity()) resize(capacity() * 2); // Amortized Time O(n)
         var newValue = item;
         for(int p = index; p < capacity(); p++){ // O(n)
             tmp = at(p);

@@ -28,7 +28,7 @@ class StringBuilder {
     }
 
     public void replace(int start, int end, char[] str){
-        if(str.Length + Size() >= capacity){
+        if(str.Length + Size() >= capacity){  
             setCapacity(capacity*2); // Amortized O(n)
         }
         for(int i = start; i <= Size()+(str.Length-capacity); i++){ // O(n)
@@ -40,7 +40,7 @@ class StringBuilder {
     public void trimToSize(){
         char[] tmp = _string;
         _string = new char[Size()];
-        for(int i = 0; i <= capacity; i++){
+        for(int i = 0; i <= capacity; i++){ // O(n)
             _string[i] = tmp[i];
         }
     }
@@ -51,11 +51,13 @@ class StringBuilder {
     public void setCapacity(int size){
         var tmp = _string;
         _string = new char[size];
-        for(int c = 0; c < tmp.Length; c++){ //O(n)
+        for(int c = 0; c < tmp.Length; c++){ // O(n)
             _string[c] = tmp[c];
         }
     }
 
-    public void getString(int start, int end){}
+    public void getString(int start, int end){
+        // TODO - Implement converstion to string.
+    }
 
 }
