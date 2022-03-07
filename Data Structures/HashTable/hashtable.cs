@@ -17,6 +17,7 @@ class HashTable {
     int hashKey(int k, int m){ // - m is size of hash table
         return hash(k) % m;
     }
+    
     void add(int key, int value) {// - if key already exists, update value
         hashTable[hashKey(key,capacity)] = value;
         items++;
@@ -25,9 +26,11 @@ class HashTable {
     bool exists(int key){
         return hashTable[hashKey(key,capacity)] != null;
     }
+
     int get(int key){
         return hashTable[hashKey(key,capacity)];
     }
+    
     void remove(int key){
         hashTable[hashKey(key,capacity)] = null;
         items--;
