@@ -56,8 +56,14 @@ class StringBuilder {
         }
     }
 
-    public void getString(int start, int end){
-        // TODO - Implement converstion to string.
-    }
+    public string getString(){
+        // DONE - Implement converstion to string.
+        string s = "";
+        for (int i = 0; i < _string.Length; i++)
+        {
+            s += _string[i];
+        }
+        return s;
+    }   
 
 }
