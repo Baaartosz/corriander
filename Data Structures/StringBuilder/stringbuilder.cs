@@ -57,7 +57,6 @@ class StringBuilder {
     }
 
     public string getString(){
-        // DONE - Implement converstion to string.
         string s = "";
         for (int i = 0; i < _string.Length; i++)
         {
