@@ -45,7 +45,7 @@ class Vector{
         at(size()) = null;
         items--;
         if(size() < (capacity()/4)){
-            resize(capacity()/2); // O
+            resize(capacity()/2); // Amortized O(n²)
         }
         return tmp;    }
 
