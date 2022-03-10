@@ -52,7 +52,7 @@ bool CheckPermutation(string s1, string s2){ // Brute Force Attempt modifed to b
 bool CheckPermutation(string s, string t){ // O(s+t)
     if(s.Length != t.Length) return false; // Permutations have to be the same length;
 
-    int[] letters = new int[128];
+    int[] letters = new int[128]; // Assuming ACSII
 
     for (int i = 0; i < s.Length; i++)
     {
