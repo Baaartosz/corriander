@@ -3,30 +3,77 @@ My implemention of LinkedList
 baaart.dev
 */
 
-int size(){}
+public class SinglyLinkedList {
 
-bool empty(){}
+    private ListNode *head = null;
+    private int size = 0;
 
-T valueAt(int index){}
+    private class ListNode {
+        int item;
+        ListNode *next = null;
 
-void pushFront(T value){}
+        public ListNode(int item, ref ListNode next){
+            this.item = item;
+            this.next = next;
+        }
+    }
 
-T popFront(){}
+    public SinglyLinkedList(){
+        *head = null;
+        size = 0;
+    }
 
-void pushBack(T value){}
+    public int Size(){
+        return size; // If using Sentinal, ignore it.
+    }
 
-T popBack(){}
+    public bool IsEmpty(){
+        return size == 0;
+    }
 
-T front(){}
+    // TODO (Less Important)
+    T valueAt(int index){}
 
-T back(){}
+    // TODO
+    void pushFront(int value){
+        if(*head == null){
+            *head = new ListNode(value, null);
+        }else{
+            *head = new ListNode(value,(int)head); // Not sure atm.
+        }
+        size++;
+    }
 
-void insert(int index, T value) {}
+    // TODO
+    T popFront(){}
 
-void erase(int index){}
+    // TODO
+    void pushBack(T value){}
 
-T valueFromNFromEnd(T n){}
+    // TODO
+    T popBack(){}
 
-void reverse(){}
+    // TODO
+    T front(){}
 
-void removeValue(T value){}
+    // TODO
+    T back(){}
+
+    // TODO
+    void insert(int index, T value) {}
+
+    // TODO
+    void erase(int index){}
+
+    // TODO (Less Important)
+    T valueFromNFromEnd(T n){}
+
+    // TODO (Less Important)
+    void reverse(){}
+
+    // TODO (Less Important)
+    void removeValue(T value){}
+
+}
+
+
