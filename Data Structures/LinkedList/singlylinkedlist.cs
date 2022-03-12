@@ -39,9 +39,7 @@ public class SinglyLinkedList {
     // TODO (Less Important)
     T valueAt(int index){}
 
-    /*
-        Adds an item to the front of the list.
-    */
+    /* Adds an item to the front of the list. */
     void pushFront(int value){
         if(head == null){
             head = new ListNode(value, null);
@@ -51,9 +49,7 @@ public class SinglyLinkedList {
         size++;
     }
 
-    /*
-        Remove front item and return its value
-    */
+    /* Remove front item and return its value */
     int popFront(){
         if(head == null) return null;
 
@@ -63,9 +59,8 @@ public class SinglyLinkedList {
 
         return front;
     }
-    /*
-        Adds an item at the end
-    */
+    
+    /* Adds an item at the end */
     void pushBack(int value){
         if(head == null){
             head = new ListNode(value);
@@ -74,7 +69,7 @@ public class SinglyLinkedList {
         }
 
         ListNode n = head;
-        while(n.next != null) {
+        while(n.next != null) { // O(n)
             n = n.next;
         }
 
@@ -82,14 +77,12 @@ public class SinglyLinkedList {
         size++;
     }
 
-    /*
-        Removes End item and returns its value
-    */
+    /* Removes End item and returns its value */
     int popBack(){
         if(head == null) return null;
 
         ListNode n = head;
-        while(n.next != null){
+        while(n.next != null){ // O(n)
             n = n.next;
         }
 
@@ -99,31 +92,25 @@ public class SinglyLinkedList {
         return value;
     }
 
-    /*
-        Gets value of front item
-    */
+    /* Gets value of front item */
     int front(){
         if(head == null) return null;
         return head.item;
     }
 
-    /*
-        Gets value of back item
-    */
+    /* Gets value of back item */
     int back(){
         if(head == null) return null;
 
         ListNode n = head;
-        while(n.next != null){
+        while(n.next != null){ // O(n)
             n = n.next;
         }
 
         return n.next.item;
     }
 
-    /*
-        Inserts value at Index, So current item at index is pointed to by new item.
-    */
+    /* Inserts value at Index, So current item at index is pointed to by new item. */
     void insert(int index, int value) {
         if(head == null){
             head = new ListNode(value);
@@ -133,7 +120,7 @@ public class SinglyLinkedList {
 
         ListNode n = head;
 
-        for(int count = 1; count >= size; count++){
+        for(int count = 1; count >= size; count++){ // O(n)
             if(count == 1 && count == index){ // Inserting at head.
                 head = new ListNode(value, head);
                 size++;
@@ -150,15 +137,13 @@ public class SinglyLinkedList {
         }
     }
 
-    /*
-        Removes node at given index.
-    */
+    /* Removes node at given index. */
     void erase(int index){
-        if(size == 0) return;
+        if(IsEmpty()) return;
 
         ListNode n = head;
 
-        for(int count = 1; count >= size; count++){
+        for(int count = 1; count >= size; count++){ // O(n)
             if(count == 1 && count == index) {
                 head = head.next;
                 size--;
@@ -188,5 +173,3 @@ public class SinglyLinkedList {
     void removeValue(T value){}
 
 }
-
-
