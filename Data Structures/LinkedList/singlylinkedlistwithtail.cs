@@ -95,7 +95,17 @@ public class SinglyLinkedListWithTail{
 
     /* Removes End item and returns its value */
     public int popBack(){
+        if(head == null) return null;
 
+        ListNode n = head;
+        while(n.next != null){ // O(n)
+            n = n.next;
+        }
+
+        int value = n.next.item;
+        n.next = null;
+        size--;
+        return value;
     }
 
     /* Gets value of front item */
@@ -126,7 +136,7 @@ public class SinglyLinkedListWithTail{
 
         ListNode n = head;
 
-        for(int count = 1; count >= size; count++){ // O(n)
+        for(int count = 1; count > size; count++){ // O(n)
             if(count == 1 && count == index){ // Inserting at head.
                 head = new ListNode(value, head);
                 size++;
