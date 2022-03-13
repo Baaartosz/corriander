@@ -13,10 +13,21 @@ baaart.dev
 //RemoveDuplicates(LinkedList.head);
 
 void RemoveDuplicates(ListNode node){
+    HastSet<int> ints = new HastSet<int>();
+    ListNode prev = null;
 
+    while(node != null) { // While list is not empty.
+        if(ints.contains(node.vaule)){
+            prev.next = node.next;
+        }else{
+            ints.add(node.value);
+            prev = node;
+        }
+        node = node.next;
+    }
 }
 
-
+// use current and runner pointers
 void RemoveDuplicates_NoBuffer(ListNode node){
     
 }
