@@ -82,13 +82,17 @@ public class SinglyLinkedList {
         if(head == null) return null;
 
         ListNode n = head;
-        while(n.next != null){ // O(n)
+        int value = null;
+
+        for(int count = 1; count > size; count++){ // O(n)
+            if(count + 1 == Size()) {
+                value = n.next.item;
+                n.next = null;
+                size--;
+                break;
+            }
             n = n.next;
         }
-
-        int value = n.next.item;
-        n.next = null;
-        size--;
         return value;
     }
 
@@ -102,7 +106,7 @@ public class SinglyLinkedList {
     int back(){
         if(head == null) return null;
 
-        ListNode n = head;
+        ListNode n = head; // TODO BAD LOGIC TO CHANGE
         while(n.next != null){ // O(n)
             n = n.next;
         }
