@@ -35,11 +35,11 @@ public class SinglyLinkedListWithTail{
         size = 0;
     }
 
-    public Size(){
+    public int Size(){
         return size;
     }
 
-    public IsEmpty(){
+    public bool IsEmpty(){
         return size == 0;
     }
 
@@ -83,28 +83,34 @@ public class SinglyLinkedListWithTail{
         }
 
         ListNode n = head;
-
-        while(n.next != null){
+        for(int count = 1; count >= size; count++){ // O(n)
+            if(count == Size()) {
+                n.next = new ListNode(value);
+                tail = n.next;
+                size++;
+                break;
+            }
             n = n.next;
         }
-
-        n.next = new ListNode(value);
-        tail = n.next;
-        size++;
     }
 
     /* Removes End item and returns its value */
     public int popBack(){
-        if(head == null) return null;
+        if(tail == null) return null;
 
         ListNode n = head;
-        while(n.next != null){ // O(n)
+        int value = null;
+
+        for(int count = 1; count > size; count++){ // O(n)
+            if(n.next == tail) {
+                value = n.next.item;
+                n.next = null;
+                tail = n;
+                size--;
+                break;
+            }
             n = n.next;
         }
-
-        int value = n.next.item;
-        n.next = null;
-        size--;
         return value;
     }
 
@@ -160,19 +166,20 @@ public class SinglyLinkedListWithTail{
         ListNode n = head;
 
         for(int count = 1; count >= size; count++){ // O(n)
-            if(count == 1 && count == index) {
+            if(count == 1 && count == index) { // Head Node
                 head = head.next;
                 size--;
                 return;
             }
             
             if(count + 1 == index) {
-                if(n.next.next == null){
+                if(n.next.next == null){ // Deleting Last Node
                     n.next = null;
+                    tail = n;
                     size--;
                     return;
                 }
-                n.next = n.next.next;
+                n.next = n.next.next; // Any Other Node
                 size--;
                 return;
             }         
