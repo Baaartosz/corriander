@@ -40,7 +40,7 @@ public class SinglyLinkedList {
     T valueAt(int index){}
 
     /* Adds an item to the front of the list. */
-    void pushFront(int value){
+    public void pushFront(int value){
         if(head == null){
             head = new ListNode(value, null);
         }else{
@@ -50,7 +50,7 @@ public class SinglyLinkedList {
     }
 
     /* Remove front item and return its value */
-    int popFront(){
+    public int popFront(){
         if(head == null) return null;
 
         int front = head.item;
@@ -61,7 +61,7 @@ public class SinglyLinkedList {
     }
     
     /* Adds an item at the end */
-    void pushBack(int value){
+    public void pushBack(int value){
         if(head == null){
             head = new ListNode(value);
             size++;
@@ -78,7 +78,7 @@ public class SinglyLinkedList {
     }
 
     /* Removes End item and returns its value */
-    int popBack(){
+    public int popBack(){
         if(head == null) return null;
 
         ListNode n = head;
@@ -97,13 +97,13 @@ public class SinglyLinkedList {
     }
 
     /* Gets value of front item */
-    int front(){
+    public int front(){
         if(head == null) return null;
         return head.item;
     }
 
     /* Gets value of back item */
-    int back(){
+    public int back(){
         if(head == null) return null;
 
         ListNode n = head; // TODO BAD LOGIC TO CHANGE
@@ -115,7 +115,7 @@ public class SinglyLinkedList {
     }
 
     /* Inserts value at Index, So current item at index is pointed to by new item. */
-    void insert(int index, int value) {
+    public void insert(int index, int value) {
         if(head == null){
             head = new ListNode(value);
             size++;
@@ -142,7 +142,7 @@ public class SinglyLinkedList {
     }
 
     /* Removes node at given index. */
-    void erase(int index){
+    public void erase(int index){
         if(IsEmpty()) return;
 
         ListNode n = head;
