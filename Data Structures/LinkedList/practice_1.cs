@@ -16,7 +16,7 @@ void RemoveDuplicates(ListNode node){
     HastSet<int> ints = new HastSet<int>();
     ListNode prev = null;
 
-    while(node != null) { // While list is not empty.
+    while(node != null) { // While list is not empty. O(n)
         if(ints.contains(node.vaule)){
             prev.next = node.next;
         }else{
@@ -29,5 +29,19 @@ void RemoveDuplicates(ListNode node){
 
 // use current and runner pointers
 void RemoveDuplicates_NoBuffer(ListNode node){
-    
+    ListNode current = node;
+
+    while(current != null){ // Run through LinkedList O(n²)
+        ListNode runner = current;
+
+        // Check for duplicates
+        while(runner.next != null){
+            if(current.value == runner.next.value){
+                runner.next = runner.next.next;
+            }else{
+                runner = runner.next;
+            }
+        }
+        current = current.next;
+    }
 }
