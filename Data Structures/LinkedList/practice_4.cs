@@ -49,12 +49,22 @@ ListNode partition(ListNode head, int p){
         }
         runner = runner.next;
     }
-    // sp1 ( edge case 1 ) = no lowHead or currentLow
-    // sp2 ( edge case 2 ) = no headHigh or currentHigh
+
+    // If partition only contains higher numbers then p, return highHead only.
+    if(currentHigh == null || highHead == null){
+        currentHigh.next = null;
+        return highHead;
+    }
+
+    // If partition only contains lower numbers then p, return lowHead only;
+    if(currentLow == null || lowHead == null) {
+        currentLow.next = null;
+        return lowHead;
+    }
 
     // Combined the two list nodes back into one.
-    currentHigh.next = null; //ok sp1 //break sp2
-    currentLow.next = highHead; //break sp1 //break sp2
-    return lowHead; //break sp1 //ok sp2
+    currentHigh.next = null;
+    currentLow.next = highHead; 
+    return lowHead;
 }
 
