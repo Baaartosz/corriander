@@ -18,27 +18,33 @@ OUTPUT 3 -> 1 -> 2   ->   10 -> 5 -> 5 -> 8 (One of many possible outputs)
 ListNode partition(ListNode head, int p){
     ListNode lowHead, highHead = null;
     ListNode currentLow, currentHigh = null;
-    ListNode runner = null;
-    while(runner != null){
-        if(runner.value < p){
+    ListNode runner = head;
+    while(runner != null){ // O(n)
+        if(runner.value < p){ // Check numbers lower then partition int.
+            
+            // Set the head of the lower number nodes.
             if(lowHead == null){
                 lowHead = runner;
                 currentLow = lowHead;
-            }else{
+            }else{ // Add to end of node.
                 currentLow.next = runner;
                 currentLow = currentLow.next;
             }
-        }else if(runner.value >= p){
+        }else if(runner.value >= p){ // Check numbers greater than or equal to partition int.
+            
+            // Set the head of the higher number nodes.
             if(highHead == null){
                 highHead = runner;
                 currentHigh = highHead;
-            }else{
+            }else{ // Add to end of node.
                 currentHigh.next = runner;
                 currentHigh = currentHigh.next;
             }
         }
         runner = runner.next;
     }
+
+    // Combined the two list nodes back into one.
     currentHigh.next = null;
     currentLow.next = highHead;
     return lowHead;
