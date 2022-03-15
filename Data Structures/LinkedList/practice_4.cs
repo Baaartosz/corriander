@@ -16,12 +16,14 @@ OUTPUT 3 -> 1 -> 2   ->   10 -> 5 -> 5 -> 8 (One of many possible outputs)
 */
 
 ListNode partition(ListNode head, int p){
-    ListNode lowHead, highHead = null;
-    ListNode currentLow, currentHigh = null;
+    ListNode lowHead, highHead = null; // Keep track of head of each node lists.
+    ListNode currentLow, currentHigh = null; // Keep track of last nodes in list.
     ListNode runner = head;
+
     while(runner != null){ // O(n)
-        if(runner.value < p){ // Check numbers lower then partition int.
-            
+        // Check numbers lower then partition int.
+        if(runner.value < p){ 
+
             // Set the head of the lower number nodes.
             if(lowHead == null){
                 lowHead = runner;
@@ -30,7 +32,10 @@ ListNode partition(ListNode head, int p){
                 currentLow.next = runner;
                 currentLow = currentLow.next;
             }
-        }else if(runner.value >= p){ // Check numbers greater than or equal to partition int.
+
+        }
+        // Check numbers greater than or equal to partition int.
+        else if(runner.value >= p){ 
             
             // Set the head of the higher number nodes.
             if(highHead == null){
@@ -40,13 +45,16 @@ ListNode partition(ListNode head, int p){
                 currentHigh.next = runner;
                 currentHigh = currentHigh.next;
             }
+
         }
         runner = runner.next;
     }
+    // sp1 ( edge case 1 ) = no lowHead or currentLow
+    // sp2 ( edge case 2 ) = no headHigh or currentHigh
 
     // Combined the two list nodes back into one.
-    currentHigh.next = null;
-    currentLow.next = highHead;
-    return lowHead;
+    currentHigh.next = null; //ok sp1 //break sp2
+    currentLow.next = highHead; //break sp1 //break sp2
+    return lowHead; //break sp1 //ok sp2
 }
 
