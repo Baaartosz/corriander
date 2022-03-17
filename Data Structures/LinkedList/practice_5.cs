@@ -11,7 +11,7 @@ Not allowed to cheat and convert linked list into an integer.
 baaart.dev
 */
 
-int sumLists(ListNode a,ListNode b){
+int sumLists(ListNode a,ListNode b){ // TODO - need to change from int to return listnode.
     int sum; 
     int n = 1;
     while( a != null || b != null){
