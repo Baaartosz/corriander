@@ -11,7 +11,7 @@ Not allowed to cheat and convert linked list into an integer.
 baaart.dev
 */
 
-int sumLists(ListNode a,ListNode b){ // TODO - need to change from int to return listnode.
+int sumLists(ListNode a,ListNode b){ // TODO - need to change from int to return listnode.  
     int sum; 
     int n = 1;
     while( a != null || b != null){
@@ -28,6 +28,31 @@ int sumLists(ListNode a,ListNode b){ // TODO - need to change from int to return
         n *= 10; // 1 10 100 ... 100,000
 
         // Move down LinkedList
+        a = a.next;
+        b = b.next;
+    }
+    return sum;
+}
+
+// Adjusted code for giving back ListNode of result.
+ListNode sumLists(ListNode a, ListNode b, bool isForwardOrder){  
+    ListNode sum = new ListNode(0, null);
+    while (a != null || b != null){
+        int c = sum.value + a + b;
+        int value = c % 10;
+        
+        sum.value = c;
+
+        if(c > 9){
+            // Create a new node with 1 inside. ( Carry 1 )
+            sum = new ListNode(1, sum);
+        }
+
+        if(c != 0){
+            // Generate a new Node when operation is complete.
+            sum = new ListNode(0, sum);
+        }
+
         a = a.next;
         b = b.next;
     }
