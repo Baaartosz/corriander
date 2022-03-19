@@ -37,20 +37,27 @@ int sumLists(ListNode a,ListNode b){ // TODO - need to change from int to return
 // Adjusted code for giving back ListNode of result.
 ListNode sumLists(ListNode a, ListNode b, bool isForwardOrder){  
     ListNode sum = new ListNode(0, null);
+    ListNode head = null;
+    if(isForwardOrder) head = sum;
+
     while (a != null || b != null){
         int c = sum.value + a + b;
         int value = c % 10;
-        
-        sum.value = c;
-
         if(c > 9){
-            // Create a new node with 1 inside. ( Carry 1 )
-            sum = new ListNode(1, sum);
-        }
+            // ( Carry 1 )
+            if(isForwardOrder){
+                sum.value += 1;
+                sum.next = new ListNode(value);
+                sum = sum.next;
+            }else{
+                sum.value = value;
+                sum = new ListNode(1, sum); // +=
+            }
+        }else{
+            // Generate a new Node.
 
-        if(c != 0){
-            // Generate a new Node when operation is complete.
-            sum = new ListNode(0, sum);
+            if (isForawrdOrder) sum = new ListNode(value, sum);
+            else sum = new ListNode(0, sum); // needs changing
         }
 
         a = a.next;
