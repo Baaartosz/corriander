@@ -25,12 +25,8 @@ Shifting nodes when capacity is exceede, expanding is possible too.
 
 */
 
+/* Fixed Approach */
 public class FixedMultiSize<T>{
-
-    // stack 1 start = size * 0/3
-    // stack 2 start = size * 1/3
-    // stack 3 start = size * 2/3
-    // way to track beginning of stack, and write index
     int numOfStacks = 3;
     int stackCapacity;
     T[] values; // Stack Values
@@ -42,16 +38,33 @@ public class FixedMultiSize<T>{
         sizes = new int[numOfStacks];
     }
 
+    /* Adds to top of specifed stack */
     public void Push(int stackNo, T data){
         if(IsFull(stack)){
             throw new FullStackException();
         }
+
+        /* Increment stack pointer then add to stack */
+        sizes[stackNo]++;
+        values[IndexOfTop(stackNo)] = data;
     }
 
+    /* Removes and returns top element of stack  */
     public T Pop(int stackNo){
-
+        if(IsEmpty(stackNo)){
+            throw new EmptyStackException();
+        }
+        
+        int topIndex = IndexOfTop(stackNo);
+        int data = values[topIndex];
+        
+        values[topIndex] = null;
+        sizes[stackNo]--;
+        
+        return data;
     }
 
+    /* Returns top item of stack */
     public T Peek(int stackNo){
         if(isEmpty(stackNo)){
             throw new EmptyStackException();
@@ -59,23 +72,20 @@ public class FixedMultiSize<T>{
         return values[IndexOfTop(stackNo)];
     }
 
+    /* Returns if a stack is empty */
     public boolean IsEmpty(int stackNo){
         return sizes[stackNo] == 0;
     }
 
+    /* Returns if a stack is full */
     public boolean IsFull(int stackNo){
         return sizes[stackNo] == stackCapacity;
     }
 
-    private int IndexOfTop(int stackNo){ // Gets top of stack from specified stack.
+    /* Returns top index from stack */
+    private int IndexOfTop(int stackNo){ 
         int offset = stackNo * stackCapacity;
         int size = sizes[stackNo];
         return offset + size - 1;
     }
-
-    //void push(int stackNo, T value)
-    //T pop(int stackNo)
-    //T peek(int stackNo)
-    //IsStacksEmpty() { return IsEmpty(1) && IsEmpty(2) && IsEmpty(3) }
-    //IsEmpty(int stackNo)
 }
