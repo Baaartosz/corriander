@@ -39,6 +39,7 @@ public class Stack {
             t.subStackMin = data;
         } else {
             t.subStackMin = top.subStackMin; // add min / new minimum
+            // missing function to see if min is bigger then subStackMin
         }
         top = t;
         
