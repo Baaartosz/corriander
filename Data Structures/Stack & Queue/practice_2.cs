@@ -38,11 +38,13 @@ public class Stack {
         if(top.subStackMin == null) {
             t.subStackMin = data;
         } else {
-            t.subStackMin = top.subStackMin; // add min / new minimum
-            // missing function to see if min is bigger then subStackMin
+            if(top.subStackMin > data){
+               t.subStackMin = data;     
+            } else {
+                t.subStackMin = top.subStackMin;
+            }
         }
         top = t;
-        
     }
 
     public int Peek(){
