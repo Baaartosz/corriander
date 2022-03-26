@@ -19,6 +19,11 @@ public class Stack {
         public StackNode(int data){
             this.data = data;
         }
+        
+        public StackNode(int data, StackNode next){
+            this.data = data;
+            this.next = next;
+        }
     }
 
     private StackNode top = null;
@@ -33,8 +38,8 @@ public class Stack {
     }
 
     public void Push(int data){
-        StackNode t = new StackNode(data);
-        t.next = top;
+        StackNode t = new StackNode(data, top);
+        /* Addtional code to support miniuim.*/
         if(top.subStackMin == null) {
             t.subStackMin = data;
         } else {
