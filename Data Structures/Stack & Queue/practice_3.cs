@@ -17,3 +17,9 @@ Implement a function popAt(int index) which preforms a pop operation at a specif
 
 baaart.dev
 */
+
+public class StackOfPlates{
+    
+    
+
+}
