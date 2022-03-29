@@ -63,7 +63,7 @@ namespace SetOfStacks_Sandbox
         public T Peek()
         {
             if (_subStacks.IsEmpty()) throw new Exception("SetOfStacks is Empty");
-            if (_subStacks.Peek().IsEmpty()) throw new Exception("SubStack is Empty.");
+            if (_subStacks.Peek().IsEmpty()) throw new Exception("SubStack is  empty.");
             return _subStacks.Peek().Peek();
         }
 
@@ -71,5 +71,88 @@ namespace SetOfStacks_Sandbox
         {
             return _subStacks.IsEmpty();
         }
+    }
+
+    public class SetOfStacks<T>
+    {
+        private Stack<Stack<T>> _subStacks = new Stack<Stack<T>>();
+        private int _capacity; // Amount of StackNodes kept in a single Stack.
+        private int _items = 0; // Keep track of items in current Stack.
+
+        public SetOfStacks(int capacity)
+        {
+            _capacity = capacity;
+        }
+
+        private void NewStack()
+        {
+            _subStacks.Push(new Stack<T>());
+        }
+        private void DestroyStack()
+        {
+            _subStacks.Pop();
+        }
+        
+        public T Pop()
+        {
+            // Check if the sub-stack is empty.
+            if(_subStacks.Peek().IsEmpty()) DestroyStack();
+            if (_subStacks.IsEmpty()) throw new Exception("SetOfStacks is Empty");
+            T value = _subStacks.Peek().Pop();
+            _items--;
+            return value;
+        }
+
+        public void Push(T data)
+        {
+            if(_items == _capacity) NewStack();
+            if (IsEmpty()) NewStack();
+            _subStacks.Peek().Push(data);
+            _items++;
+        }
+
+        public T Peek()
+        {
+            if (_subStacks.IsEmpty()) throw new Exception("SetOfStacks is Empty");
+            if (_subStacks.Peek().IsEmpty()) throw new Exception("SubStack is  empty.");
+            return _subStacks.Peek().Peek();
+        }
+
+        public bool IsEmpty()
+        {
+            return _subStacks.IsEmpty();
+        }
+    }
+
+        /// <summary>
+    /// Abstract Data Type : Stack Implementation
+    /// Additional Extra Info: Stacks are First In, Last Out.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public interface IStack<T>
+    {
+        /// <summary>
+        /// Removes and Returns the last added item.
+        /// </summary>
+        /// <returns>T</returns>
+        public T Pop();
+        
+        /// <summary>
+        /// Adds item to the top of the Stack.
+        /// </summary>
+        /// <param name="data">T</param>
+        public void Push(T data);
+        
+        /// <summary>
+        /// Looks at top item in the Stack
+        /// </summary>
+        /// <returns>T</returns>
+        public T Peek();
+        
+        /// <summary>
+        /// Returns if Stack is Empty.
+        /// </summary>
+        /// <returns>bool</returns>
+        public bool IsEmpty();
     }
 }
