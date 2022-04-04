@@ -22,7 +22,7 @@ using System;
 
 namespace SetOfStacks_Sandbox
 {
-    public class SetOfStacks<T>
+    public class SetOfStacks<T> : IStack<T>
     {
         private Stack<Stack<T>> _subStacks = new Stack<Stack<T>>();
         private int _capacity; // Amount of StackNodes kept in a single Stack.
@@ -62,7 +62,7 @@ namespace SetOfStacks_Sandbox
 
         public T Peek()
         {
-            if (_subStacks.IsEmpty()) throw new Exception("SetOfStacks is Empty");
+            if (IsEmpty()) throw new Exception("SetOfStacks is Empty");
             if (_subStacks.Peek().IsEmpty()) throw new Exception("SubStack is  empty.");
             return _subStacks.Peek().Peek();
         }
