@@ -1,3 +1,3 @@
 {
-    "editor.codeLens": true // Need to focus on problem, this is very distracting.
+    "editor.codeLens": false // Need to focus on problem, this is very distracting.
 }
