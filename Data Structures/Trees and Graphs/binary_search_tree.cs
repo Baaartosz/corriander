@@ -31,6 +31,7 @@ public class TreeNode<T>{
 
     public TreeNode Find(T d){
         // If current TreeNode is one we want, return it.
+        // Pre-Order Traversal
         if(d == this.data) return this;
         // Check Left Child
         else if(d <= this.data){
