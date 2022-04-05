@@ -25,10 +25,27 @@ namespace GraphQ2_Sandbox {
         }
     }
 
+    public class TreeUtil{
+        
+        public static TreeNode<int> createMinimalTree(int[] numberArray){
+            return createMinimalTree(numberArray, 0, numberArray.Length - 1);
+        }
 
-    // Ensure simular number of nodes on left and right children;
-    public TreeNode<int> MinimalTree(int[] numberArray){
-        TreeNode n = new TreeNode<int>();
+        // Recursive Approach | O(log n) as smaller subset given each recursion.
+        public static TreeNode<int> createMinimalTree(int[] array, int start, int end){ 
+            if(end < start) return null;
+
+            int midPoint = (start + end ) / 2;
+            
+            TreeNode<int> n = new TreeNode<int>(array[midPoint]);
+            n.left = createMinimalTree(array, start, midPoint - 1);
+            n.right = createMinimalTree(array, midPoint + 1, end);
+            return n;
+        }
+
+        static void Main(){
+            int[] numberArray = new int[]{ 3, 4, 5, 8, 11, 23, 45, 68, 80, 100 };
+            TreeNode<int> = TreeUtil.createMinimalTree(numberArray);
+        }
     }
-
 }
