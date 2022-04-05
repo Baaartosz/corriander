@@ -32,6 +32,12 @@ namespace GraphQ2_Sandbox {
         }
 
         // Recursive Approach | O(log n) as smaller subset given each recursion.
+
+        // First we get the middle of the array
+        // Then we set left childs as a new MiniamlTree of the smaller subset.
+        // And right childs as a new MinimalTree of the smaller subset.
+        // Repeat untill done.
+
         public static TreeNode<int> createMinimalTree(int[] array, int start, int end){ 
             if(end < start) return null;
 
