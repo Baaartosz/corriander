@@ -3,7 +3,7 @@ My implemention of SinglyLinkedList for the Integer data type.
 baaart.dev
 */
 
-public class SinglyLinkedList {
+public class LinkedList {
 
     class ListNode {
         public int item;
