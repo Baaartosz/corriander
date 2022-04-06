@@ -11,7 +11,7 @@ baaart.dev
 [ 3, 4, 5, 8, 11, 23, 45, 68, 80, 100]
 */
 
-namespace GraphQ2_Sandbox {
+namespace Graph_Sandbox {
 
     public class TreeNode<T> {
         private int size = 0;
@@ -25,7 +25,7 @@ namespace GraphQ2_Sandbox {
         }
     }
 
-    public class TreeUtil{
+    public class TreeUtilMin{
         
         public static TreeNode<int> createMinimalTree(int[] numberArray){
             return createMinimalTree(numberArray, 0, numberArray.Length - 1);
