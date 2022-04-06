@@ -7,7 +7,8 @@ baaart.dev
 */
 
 public class TreeNode<T>{
-    private int size = 0;
+    public int size = 0;
+    public bool visited = false;
     public T data;
     public TreeNode left, right, parent;
     public TreeNode(T data){
