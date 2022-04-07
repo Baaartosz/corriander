@@ -17,7 +17,8 @@ class Vector{
     public bool is_empty(){
         return items == 0;
     }
-    public int at(int index){
+    
+    public T at(int index){
         return array[index];
     }
 
@@ -33,7 +34,7 @@ class Vector{
         for(int p = index; p < capacity(); p++){ // O(n)
             tmp = at(p);
             at(p) = newValue;
-            newValue = temp;
+            newValue = tmp;
         }
         items++;
     }
@@ -47,7 +48,8 @@ class Vector{
         if(size() < (capacity()/4)){
             resize(capacity()/2); // Amortized O(n²)
         }
-        return tmp;    }
+        return tmp;    
+    }
 
     public void delete(int index){
         at(index) = null;
