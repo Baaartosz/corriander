@@ -19,7 +19,7 @@ public class Graph<T>{
 public class Node<T>{
     public T data;
     public STATE state;
-    public Node<T>[] adjacents;
+    public Node<T>[] adjacent;
 
     public enum STATE { Unvisited, Visited, Visiting }
 
