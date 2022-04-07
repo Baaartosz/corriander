@@ -8,7 +8,6 @@ namespace Coriander // Note: actual namespace depends on the project name.
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            // Graph<int> graph = new Graph<int>();
         }
     }
 }
