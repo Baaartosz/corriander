@@ -4,7 +4,7 @@
     {
         private const int _startCapacity = 4;
         private int _items, _capacity;
-        private T?[] _array;
+        public T?[] _array;
 
         // Default Capacity
         public Vector()
@@ -29,12 +29,12 @@
         public bool IsEmpty() => _items == 0;
 
         // Returns data from Index
-        public T? At(int index) => _array[index];
+        public T At(int index) => _array[index];
 
         public void Push(T? data)
         {
             if (Size() == Capacity()) Resize(Capacity() * 2);
-            _array[Size() + 1] = data; // possible function SetAt(index, data)
+            _array[_items] = data; // possible function SetAt(index, data)
             _items++;
         }
 
