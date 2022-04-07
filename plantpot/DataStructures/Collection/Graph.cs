@@ -1,4 +1,4 @@
-﻿namespace Coriander.DataStructures
+﻿namespace Coriander.DataStructures.Collection
 {
     public class Graph<T> : IGraph<T>
     {

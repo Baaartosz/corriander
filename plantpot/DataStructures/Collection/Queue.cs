@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Coriander.DataStructures
+namespace Coriander.DataStructures.Collection
 {
     public class Queue<T> : IQueue<T>
     {
