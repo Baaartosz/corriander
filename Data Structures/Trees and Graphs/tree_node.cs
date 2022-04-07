@@ -6,12 +6,12 @@ My implementation of BS Tree
 baaart.dev
 */
 
-public class TreeNode<T>{
+public class TreeNode{
     public int size = 0;
     public bool visited = false;
-    public T data;
+    public int data;
     public TreeNode left, right, parent;
-    public TreeNode(T data){
+    public TreeNode(int data){
         this.data = data;
         size = 1;
     }
@@ -20,19 +20,19 @@ public class TreeNode<T>{
 
     public void InsertInOrder(T d){
         // Check Left Child
-        if(d <= this.data){
-            if(left == null) SetLeftChild(new TreeNode<T>(d));
+        if(d <= this.data){ // Error - cannot compare because objects are unknown
+            if(left == null) SetLeftChild(new TreeNode(d));
             else left.InsertInOrder(d);
         } 
         // Check Right Child
         else { // d > this.data
-            if(right == null) SetRightChild(new TreeNode<T>(d));
+            if(right == null) SetRightChild(new TreeNode(d));
             else right.InsertInOrder(d);
         }
         size++;
     }
 
-    public TreeNode Find(T d){
+    public TreeNode Find(int d){
         // If current TreeNode is one we want, return it.
         // Pre-Order Traversal
         if(d == this.data) return this;
