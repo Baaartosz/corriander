@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace Coriander.DataStructures.Collection
+﻿namespace Coriander.DataStructures.Collection
 {
-    public class Stack<T> : IStack<T> {
+    public class MyStack<T> : IStack<T> {
 
         internal class StackNode<T> {
             internal T data;
