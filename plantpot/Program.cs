@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Coriander
 {
@@ -6,7 +7,8 @@ namespace Coriander
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Q3");
+            Console.WriteLine("Arrays Q4");
+            Console.WriteLine("isPermutationOfPalindrome('tact coa') = " + new Questions.Arrays.practice_4().IsPermutationOfPalindrome("tact coa"));
         }
     }
 }
