@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// TreeNode class to represent Trees;
-    /// Using primitive type INT
+    /// Using primitive type integer
     /// </summary>
     public class TreeNode
         {
