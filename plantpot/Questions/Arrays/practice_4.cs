@@ -11,6 +11,8 @@
  * dictionary words.
  *
  * You may ignore casing and non-letter characters.
+ *
+ * baaart.dev
  */
 
 public class practice_4

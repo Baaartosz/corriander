@@ -7,8 +7,8 @@ namespace Coriander
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Arrays Q4");
-            Console.WriteLine("isPermutationOfPalindrome('tact coa') = " + new Questions.Arrays.practice_4().IsPermutationOfPalindrome("tact coa"));
+            Console.WriteLine("LinkedLists Q5");
+            
         }
     }
 }
