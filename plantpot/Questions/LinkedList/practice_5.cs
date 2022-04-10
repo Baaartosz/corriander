@@ -20,18 +20,24 @@ public class practice_5
     public ListNode<int> SumLists(ListNode<int>? a, ListNode<int>? b)
     {
         ListNode<int> result = new ListNode<int>(0);
-
-        bool carryOne = false;
         
         while (a != null || b != null)
         {
             int v = result.Value + a.Value + b.Value;
-            
-            carryOne = v > 9;
-            
             result.Value = v % 10;
-            result = new ListNode<int>(carryOne ? 1 : 0, result);
             
+            if (v > 9)
+            {
+                result = new ListNode<int>(1, result);
+            }
+            else
+            {
+                if (a.Next != null && b.Next != null)
+                {
+                    result = new ListNode<int>(0, result);
+                }
+            }
+
             a = a.Next;
             b = b.Next;
         }
@@ -44,9 +50,10 @@ public class practice_5
     {
         while (l != null)
         {
-            Console.WriteLine(l.Value);
+            Console.Write(l.Value);
             l = l.Next;
         }
+        Console.WriteLine();
     }
     
     /* Helper Function for testing */
@@ -57,6 +64,11 @@ public class practice_5
         var b = new ListNode<int>(5, new ListNode<int>(9, new ListNode<int>(8)));
         var result = Question.SumLists(a, b);
         
+        var c = new ListNode<int>(1, new ListNode<int>(2, new ListNode<int>(3)));
+        var d = new ListNode<int>(1, new ListNode<int>(2, new ListNode<int>(3)));
+        var result2 = Question.SumLists(c, d);
+        
         GetValue(result);
+        GetValue(result2);
     }
 }
