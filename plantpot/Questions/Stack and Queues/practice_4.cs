@@ -15,7 +15,7 @@ public class practice_4
     {
         private MyStack<T> _primary;
         private MyStack<T> _temp;
-        private MyStack<T>.StackNode<T>? _front = null;
+        private T _front;
         private int _items;
 
         public MyQueue()
@@ -29,6 +29,7 @@ public class practice_4
         {
             _primary.Push(data);
             _items++;
+            if (_items == 1) _front = data;
         }
 
         public T Dequeue()
@@ -40,20 +41,20 @@ public class practice_4
                 _items--;
                 
             }
-
+            
             T oldestItem = _primary.Pop();
+            _front = default;
             _items--;
             
             while (!_temp.IsEmpty())
             {
-                _primary.Push(_temp.Pop());
-                _items++;
+                Enqueue(_temp.Pop());
             }
             
             return oldestItem;
         }
 
-        public T Front() => _front.data;
+        public T Front() => _front;
 
         public bool IsEmpty() => _primary.IsEmpty();
 

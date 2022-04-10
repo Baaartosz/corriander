@@ -1,4 +1,5 @@
-﻿using Coriander.Questions.Stack_and_Queues;
+﻿using Coriander.Questions.LinkedList;
+using Coriander.Questions.Stack_and_Queues;
 
 namespace Coriander
 {
@@ -7,6 +8,7 @@ namespace Coriander
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World");
+            practice_4.MyQueue<int>.Test();
         }
     }
 }
