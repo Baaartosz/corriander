@@ -32,7 +32,7 @@ public class practice_5
             }
             else
             {
-                if (a.Next != null && b.Next != null)
+                if (a.Next != null || b.Next != null)
                 {
                     result = new ListNode<int>(0, result);
                 }
