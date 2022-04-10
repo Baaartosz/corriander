@@ -10,10 +10,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Questions\Trees and Graphs" />
-    </ItemGroup>
-
-    <ItemGroup>
       <EmbeddedResource Update="Questions\Trees and Graphs.resx">
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Trees and Graphs.Designer.cs</LastGenOutput>
