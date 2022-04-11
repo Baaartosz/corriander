@@ -14,8 +14,8 @@
             public TreeNode(int data, TreeNode left, TreeNode right, TreeNode parent)
             {
                 this.data = data;
-                this.left = left;
-                this.right = right;
+                SetLeftChild(left);
+                SetRightChild(right);
                 this.parent = parent;
                 size = 1;
             }
