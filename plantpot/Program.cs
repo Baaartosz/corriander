@@ -7,7 +7,7 @@ namespace Coriander
         static void Main(string[] args)
         {
             Console.WriteLine("Bit Manipulation Q1");
-            practice_1.Test();
+            practice_2.Test();
         }
     }
 }
