@@ -43,7 +43,7 @@ public class practice_1
         // +1 because otherwise i, j would be on indexes 5 -> 1;
         // When we -1, we lose the current 1, for the remainder 1's
         // E.g (0b1000000) - 1 = 0111111;
-        int clearMask = ((1 << j + 1 ) - 1) ^ ((1 << (i + 1 - 1)) - 1);
+        int clearMask = ((1 << j + 1 ) - 1) ^ ((1 << i) - 1);
         N &= ~clearMask;
         
         // Shift M bits into place.
