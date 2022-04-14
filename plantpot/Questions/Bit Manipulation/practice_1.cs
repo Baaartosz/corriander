@@ -36,10 +36,7 @@ public class practice_1
         return (n & mask) | (newValue << i);
     }
     
-    // Take another go at this but don't use for loop.
-    // Clear bits between i & j on N
-    // Left shift M to fit into N
-    // Merge together
+    // Second Attempt 
     public int InsertV2(int N, int M, int i, int j) // O(1)
     {
         // Clear bits between i & j on N.
